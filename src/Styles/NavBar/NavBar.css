@@ -26,13 +26,28 @@
 
 .middle-section {
   width: 300px;
-  margin-left: -300px;
 }
 
-.ul-lists {
+.mid-lists {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  margin-left: 100px;
+}
+.search-input-box {
+  width: 300px;
+  height: 25px;
+  border: 1px solid gray;
+  border-radius: 4px;
+  font-family: arial;
+  padding-left: 10px;
+  box-shadow: inset 1px 1px 3px gray;
 }
 
 .right-section {
@@ -40,4 +55,7 @@
   width: 300px;
   justify-content: space-evenly;
   align-items: center;
+}
+.navbar-list {
+  text-decoration: none;
 }

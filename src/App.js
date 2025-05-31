@@ -13,6 +13,7 @@ function App() {
     <>
       <Router>
         <NavBar />
+        <main className="main-section">
         <Routes>
           <Route path='/' element={<Home/>}/>
           <Route path='/restarents' element={<RestarentList />} />
@@ -21,6 +22,7 @@ function App() {
           <Route path="/signin" element={<SignIn/>} />
           <Route path="/login" element={<LoginButton/>} />
         </Routes>
+        </main>
       </Router>
     </>
   );
