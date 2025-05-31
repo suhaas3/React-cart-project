@@ -1,0 +1,38 @@
+.navbar-main {
+  background-color: aqua;
+  color: black;
+}
+
+.nav-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 250px;
+  margin-right: 100px;
+}
+
+.left-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100px;
+}
+
+.middle-section {
+  width: 300px;
+  margin-left: -300px;
+}
+
+.ul-lists {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.right-section {
+  display: flex;
+  width: 300px;
+  justify-content: space-evenly;
+  align-items: center;
+}
