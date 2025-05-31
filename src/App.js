@@ -1,12 +1,10 @@
-import Navbar from "./components/Navbar";
+import NavBar from "./Components/NavBar/NavBar";
 
 
 function App() {
   return (
     <>
-      <Navbar/>
-      <div>hello</div>
-      <div>ukghkl</div>
+      <NavBar/>
     </>
   );
 }
