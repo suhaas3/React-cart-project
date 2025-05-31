@@ -18,6 +18,11 @@
   justify-content: center;
   width: 100px;
 }
+.home-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 .middle-section {
   width: 300px;

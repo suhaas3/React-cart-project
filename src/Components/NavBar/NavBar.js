@@ -8,7 +8,9 @@ function NavBar() {
     <nav className="navbar-main">
       <div className="nav-bar">
         <div className="left-section">
-          Home
+          <ul type='none' className="home-list">
+            <li>Home</li>
+          </ul>
         </div>
 
         <div className="middle-section">
