@@ -12,7 +12,6 @@ function NavBar() {
   const navigateToPage = (event) => {
     const { value } = event.target;
     navigate(value);
-    console.log(value)
   }
 
   const middle = [
@@ -29,7 +28,9 @@ function NavBar() {
             <ul type='none' className="mid-lists">
               {middle.map((item, index) => {
                 return (
-                  <Link to={item.path} className={`navbar-list ${location === item.path} ? "active-link" : ""`}  key={index}><li>{item.name}</li></Link>
+                  <Link to={item.path} className={`navbar-list ${
+                    location.pathname === item.path ? 'active-link' : ''
+                  }`}  key={index}><li>{item.name}</li></Link>
                 );
               })}
             </ul>

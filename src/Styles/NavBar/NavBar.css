@@ -1,5 +1,5 @@
 .navbar-main {
-  background-color: aqua;
+  background-color: rgb(47, 228, 228);
   color: black;
 }
 
@@ -49,6 +49,6 @@
   text-decoration: none;
 }
 
-.active-list{
+.active-link{
   border-bottom: 2px solid red;
 }
