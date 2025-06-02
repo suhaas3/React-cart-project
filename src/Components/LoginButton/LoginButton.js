@@ -12,6 +12,9 @@ function LoginButton() {
     password: ''
   })
 
+  const [error,setError]=useState();
+
+
   function handleUserName(event) {
     const userName = event.target.value;
     updateUserDetails(pre => ({
@@ -28,13 +31,20 @@ function LoginButton() {
     }))
   }
 
+
+
   function handleUserDetails(event) {
     console.log('user name:', userDetails.userName)
     console.log('password:', userDetails.password)
+
     if (userDetails.userName === 'sai' && userDetails.password === '12345') {
+      setError('Login Succesfully');
+      alert('Login succesfully')
       navigate('/')
-    } else if (userDetails.userName === '' && userDetails.password === '') {
-      console.log('sorry! user name and password empty')
+    } else if (userDetails.userName === '' || !userDetails.password === '') {
+      setError('Both userName and password required!');
+    } else if (userDetails.userName === 'sai' || userDetails.password !== '12345') {
+      setError('incorrect password!')
     }
   }
 
@@ -45,13 +55,12 @@ function LoginButton() {
   return (
     <>
       <div className="login-section">
-        <h1>{userDetails.userName}</h1>
-        <h1>{userDetails.password}</h1>
         <div className="login-sub-section">
           <h3>Login Section</h3>
           <input type="text" className="userNameBox" placeholder="Username" onChange={handleUserName} />
           <input type="text" className="passwordBox" placeholder="Password" onChange={handlePassword} />
           <button className="login-button-new" onClick={handleUserDetails}>Login</button>
+          <span className="error-message">{error}</span>
           <div className="or-container">
             <div className="hr-container">
               <div className="hr-line">
