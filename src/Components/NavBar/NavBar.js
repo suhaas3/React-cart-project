@@ -1,7 +1,7 @@
 import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import '../../Styles/NavBar/NavBar.css';
-import '../../Styles/LoginButton/LoginButton.css';
+import './NavBar.css';
+import '../LoginButton/LoginButton.css';
 
 function NavBar() {
 
