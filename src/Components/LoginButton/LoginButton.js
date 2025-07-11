@@ -41,10 +41,8 @@ function LoginButton() {
       setError('Login Succesfully');
       alert('Login succesfully')
       navigate('/')
-    } else if (userDetails.userName === '' || !userDetails.password === '') {
-      setError('Both userName and password required!');
-    } else if (userDetails.userName === 'sai' || userDetails.password !== '12345') {
-      setError('incorrect password!')
+    }  else {
+      setError('sorry, ur password is incorrect. please double check ur password !')
     }
   }
 

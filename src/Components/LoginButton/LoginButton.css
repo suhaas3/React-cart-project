@@ -108,6 +108,8 @@
 }
 
 .error-message {
+  width: 160px;
+  text-wrap: wrap;
   font-family: arial;
   font-size: 10px;
   color: red;
