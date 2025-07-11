@@ -52,9 +52,10 @@ function LoginButton() {
 
   return (
     <>
+    <div className="login-page">
       <div className="login-section">
+         <h3>Login Section</h3>
         <div className="login-sub-section">
-          <h3>Login Section</h3>
           <input type="text" className="userNameBox" placeholder="Username" onChange={handleUserName} />
           <input type="text" className="passwordBox" placeholder="Password" onChange={handlePassword} />
           <button className="login-button-new" onClick={handleUserDetails}>Login</button>
@@ -83,6 +84,7 @@ function LoginButton() {
           Don't have an account ?
           <span onClick={goToSignUpPage}>Sign up</span>
         </div>
+      </div>
       </div>
     </>
   );
