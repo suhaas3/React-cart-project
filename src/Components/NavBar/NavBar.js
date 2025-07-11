@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import './NavBar.css';
 import '../LoginButton/LoginButton.css';
 
@@ -9,13 +9,12 @@ function NavBar() {
 
   const location = useLocation();
 
-  const navigateToPage = (event) => {
-    const { value } = event.target;
-    navigate(value);
+  function navigateToPage(path) {
+    navigate(path)
   }
 
   const middle = [
-    { path: '/', name: 'Home' },
+    { path: '/', name: 'eKart' },
     { path: '/restarents', name: 'Restarent List' },
     { path: '/cart', name: 'Cart' },
     { path: '/checkout', name: 'Checkout' }
@@ -25,15 +24,15 @@ function NavBar() {
       <nav className="navbar-main">
         <div className="nav-bar">
           <div className="middle-section">
-            <ul type='none' className="mid-lists">
               {middle.map((item, index) => {
                 return (
-                  <Link to={item.path} className={`navbar-list ${
+                  <ul type='none' className={`navbar-list ${
                     location.pathname === item.path ? 'active-link' : ''
-                  }`}  key={index}><li>{item.name}</li></Link>
+                  }`}>
+                    <li onClick={() => navigateToPage(item.path)} className="lists">{item.name}</li>
+                  </ul>
                 );
               })}
-            </ul>
           </div>
 
           <div className="search-bar">
@@ -41,8 +40,7 @@ function NavBar() {
           </div>
 
           <div className="right-section">
-            <button className="login-button" value={'/signin'} onClick={navigateToPage}>SignUp</button>
-            <button className="login-button" value={'/login'} onClick={navigateToPage}>Login</button>
+            <button className="login-button" onClick={() => navigateToPage('/login')}>Login</button>
           </div>
         </div>
       </nav>

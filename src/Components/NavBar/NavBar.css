@@ -8,19 +8,15 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin-left: 250px;
-  margin-right: 100px;
+  margin-left: 150px;
 }
 
 
 .middle-section {
-  width: 400px;
-}
-
-.mid-lists {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 500px;
 }
 
 .search-bar {
@@ -46,9 +42,13 @@
   align-items: center;
 }
 .navbar-list {
-  text-decoration: none;
-}
+  display: flex;
+  justify-content: space-between; 
+  }
 
 .active-link{
   border-bottom: 2px solid red;
+}
+.lists {
+  cursor: pointer;
 }
