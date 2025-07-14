@@ -6,7 +6,7 @@ function Cart() {
 
   const [productsList, setProductList] = useState([]);
   const [category, setCategory] = useState('All');
-  const [price, setPrice] = useState();
+  const [price, setPrice] = useState('All');
   const [filterProducts, setFilterProducts] = useState([]);
 
   async function getApiData() {
@@ -20,7 +20,7 @@ function Cart() {
   useEffect(() => {
     getApiData();
     setCategory('All');
-    setPrice();
+    setPrice('All');
   }, [])
 
 
@@ -80,6 +80,7 @@ useEffect(() => {
 
         <div className="price-option">
           <select onChange={getPrice}>
+            <option>All</option>
             <option>1 - 100</option>
             <option>101 - 300</option>
             <option>301 - 500</option>
