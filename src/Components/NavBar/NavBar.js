@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import './NavBar.css';
-import '../LoginButton/LoginButton.css';
+import '../Login/Login.css';
 
 function NavBar() {
 
@@ -15,7 +15,7 @@ function NavBar() {
 
   const middle = [
     { path: '/', name: 'eKart' },
-    { path: '/restarents', name: 'Orders' },
+    { path: '/orders', name: 'Orders' },
     { path: '/cart', name: 'Cart' },
     { path: '/checkout', name: 'Checkout' }
   ];
@@ -40,7 +40,7 @@ function NavBar() {
           </div>
 
           <div className="right-section">
-            <button className="login-button" onClick={() => navigateToPage('/login')}>Login</button>
+            <button className="login-button" onClick={() => navigateToPage('/')}>Login</button>
           </div>
         </div>
       </nav>

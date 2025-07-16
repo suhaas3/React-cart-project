@@ -2,24 +2,24 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const globalState = {
   userName: "",
-  password: ""
+  passWord: ""
 }
 
 export const LoginFormSlice = createSlice({
   name: 'login_form',
   initialState: globalState,
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
+    ReduxLoginDetails: (state) => {
       state.value += 1
+    },
+    testLoginDetails: (state, action) => {
+      state.userName = action.payload.userName
+      state.passWord = action.payload.passWord
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { increment } = LoginFormSlice.actions
+export const { ReduxLoginDetails, testLoginDetails } = LoginFormSlice.actions
 
 export default LoginFormSlice.reducer
