@@ -1,24 +1,22 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../Features/Auth/AuthSclice";
+import './Ekart.css';
+import { useSelector } from "react-redux";
 
 function Ekart() {
 
   const { user } = useSelector(state => state.auth);
-  const dispatch = useDispatch();
 
-
-  function handleLogout() {
-    dispatch(logout())
-  }
 
   return (
 
     <>
-      <div className="profile-details">
-        <h1>wellcome! {user?.userName}</h1>
-        <p>you have successfully logged in...</p>
-        <button onClick={handleLogout}>logout</button>
+      <div className="ekart-main">
+        <div className="profile-details">
+          <div className="greetings">
+            <h1 className="welcome">wellcome! {user?.userName}</h1>
+            <p className="logged-in">you have successfully logged in...</p>
+          </div>
+        </div>
       </div>
     </>
   );

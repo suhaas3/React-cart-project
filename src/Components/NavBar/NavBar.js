@@ -1,16 +1,25 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import './NavBar.css';
 import '../Login/Login.css';
+import { logout } from "../../Features/Auth/AuthSclice";
 
 function NavBar() {
 
   const navigate = useNavigate();
-
   const location = useLocation();
+  const dispatch = useDispatch();
+  const {isAuthenticate}= useSelector(state => state.auth)
 
   function navigateToPage(path) {
     navigate(path)
+  }
+
+  function handleLogout(event) {
+    event.preventDefault();
+
+    dispatch(logout())
   }
 
   const middle = [
@@ -40,7 +49,7 @@ function NavBar() {
           </div>
 
           <div className="right-section">
-            <button className="login-button" onClick={() => navigateToPage('/')}>Login</button>
+            {isAuthenticate ? (<button onClick={handleLogout} type="submit" className="login-logout-button">Logout</button>) : (<button className="login-logout-button" onClick={() => navigateToPage('/')}>Login</button>)}
           </div>
         </div>
       </nav>

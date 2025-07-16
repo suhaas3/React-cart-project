@@ -4,6 +4,7 @@
   height: 100px;
   padding-top: 30px;
   padding-bottom: 40px;
+  border-bottom: 1px solid black;
 }
 
 .nav-bar {
@@ -53,4 +54,13 @@
 }
 .lists {
   cursor: pointer;
+}
+.login-logout-button {
+  background-color: orange;
+  border: none;
+  color: white;
+  font-family: arial;
+  font-size: 16px;
+  padding: 6px 35px;
+  border-radius: 20px;
 }

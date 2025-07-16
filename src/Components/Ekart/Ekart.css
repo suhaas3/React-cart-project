@@ -1,0 +1,10 @@
+.ekart-main {
+  margin-top: 50px;
+}
+.profile-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 100px;
+  margin-right: 94px;
+}  

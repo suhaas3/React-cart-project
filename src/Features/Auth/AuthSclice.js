@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const users = [
-  { userName: "user1", passWord: "pass1" },
-  { userName: "user2", passWord: "pass2" }
+  { userName: "username1", passWord: "password123" },
+  { userName: "username2", passWord: "password456" },
+  { userName: "username3", passWord: "password033" }
 ]
 
 
