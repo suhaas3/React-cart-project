@@ -14,26 +14,49 @@ function Products() {
   //   setProductsData(response.data)
   // }
 
-  const [elect,setSelect] = useState('All');
-  const [filterProducts,setFilterProducts] =useState([]);
+  const [category, setCategory] = useState('All');
+  const [price,setPrice] = useState('All'); 
+  const [filterProducts, setFilterProducts] = useState([]);
   const dispatch = useDispatch();
   const { productData, isLoading } = useSelector((state) => state.products)
 
   useEffect(() => {
-      setSelect('All');
     dispatch(getApiData());
-  }, [])
+    setCategory('All');
+    setPrice('All');
+  }, [dispatch])
 
   useEffect(() => {
-    
-  },[elect, productData])
+    let filtered = [...productData];
+
+    console.log('elect option', category)
+
+    if (category !== 'All') {
+      filtered = filtered.filter(product => product.category === category);
+    }
+
+    if (price !== 'All') {
+      filtered = filtered.filter(product => {
+        const p = product.price;
+        if (price === '1 - 100') return p >= 1 && p <= 100;
+        if (price === '101 - 300') return p > 101 && p <= 300;
+        if (price === '301 - 500') return p > 301 && p <= 500;
+        if (price === '501 above') return p > 501;
+        return true;
+      })
+    }
+
+    setFilterProducts(filtered);
+  }, [productData, category, price])
+
 
   return (
     <>
 
-    <div className="options-header">
+      <div className="options-header">
         <div className="category-option">
-          <select onChange={(e) =>setSelect(e.target.value)}>
+          <p className="option-heading">select ur category</p>
+          <select onChange={(e) => setCategory(e.target.value)}>
             <option>All</option>
             <option>men's clothing</option>
             <option>jewelery</option>
@@ -42,8 +65,9 @@ function Products() {
           </select>
         </div>
 
-          <div className="price-option">
-          <select onChange={(e) =>setSelect(e.target.value)}>
+        <div className="price-option">
+          <p className="option-heading">select price</p>
+          <select onChange={(e) => setPrice(e.target.value)}>
             <option>All</option>
             <option>1 - 100</option>
             <option>101 - 300</option>
@@ -51,29 +75,29 @@ function Products() {
             <option>501 above</option>
           </select>
         </div>
-        </div>
+      </div>
 
-          {isLoading ? <div className="loader loader-container"></div> : <div className="container">
-            <div className="row">
-              {productData?.map(productList => {
-                return (
-                  <div class="card card-container">
-                    <div className="img-container">
-                      <img src={productList.image} className="card-img-top image" alt="..." />
-                    </div>
-                    <div className="card-body">
-                      <p className="card-title">Price :{productList.price}</p>
-                      <p className="card-text">Category :{productList.category}</p>
-                      <button className="oreder-button">oredr now</button>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>}
-      </>
-      );
+      {isLoading ? <div className="loader loader-container"></div> : <div className="container">
+        <div className="row">
+          {filterProducts?.map(productList => {
+            return (
+              <div class="card card-container">
+                <div className="img-container">
+                  <img src={productList.image} className="card-img-top image" alt="..." />
+                </div>
+                <div className="card-body">
+                  <p className="card-title">Price :{productList.price}</p>
+                  <p className="card-text">Category :{productList.category}</p>
+                  <button className="oreder-button">add to cart</button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>}
+    </>
+  );
 }
 
 
-      export default Products;
+export default Products;

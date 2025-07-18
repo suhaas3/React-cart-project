@@ -1,3 +1,18 @@
+.options-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+   width: 600px;
+   margin-top: 30px;
+   margin-bottom: 40px;
+   margin-left: 134px;
+}
+.option-heading {
+  font-size: 26px;
+  font-family: arial;
+  letter-spacing: 1px;
+}
 .card-container {
   display: flex;
   flex-direction: column;
@@ -38,7 +53,7 @@
 }
 .loader-container {
 margin-left: 750px;
-margin-top: 300px;
+margin-top: 200px;
 }
 /* HTML: <div class="loader"></div> */
 .loader {
