@@ -24,6 +24,7 @@ function NavBar() {
 
   const middle = [
     { path: '/', name: 'eKart' },
+    {path: '/products', name: 'Products'},
     { path: '/orders', name: 'Orders' },
     { path: '/cart', name: 'Cart' },
     { path: '/checkout', name: 'Checkout' }

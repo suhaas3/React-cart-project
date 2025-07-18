@@ -70,16 +70,16 @@ function Login() {
   }
 
   function handleSubmit(event) {
-    event.preventDefault();
+      event.preventDefault();
 
-    dispatch(login({ userName: loginDetails.userName, passWord: loginDetails.passWord }))
+      dispatch(login({ userName: loginDetails.userName, passWord: loginDetails.passWord }))
   }
 
   useEffect(() => {
     if (isAuthenticate) {
       navigate('/home')
     }
-  },[isAuthenticate,navigate])
+  }, [isAuthenticate, navigate])
 
   function goToSignUpPage() {
     navigate('/signin')

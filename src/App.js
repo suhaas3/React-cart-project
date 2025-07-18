@@ -7,6 +7,7 @@ import Login from "./Components/Login/Login";
 import { useSelector } from "react-redux";
 import Ekart from "./Components/Ekart/Ekart";
 import Orders from "./Components/Orders/Orders";
+import Products from "./Components/Products/Products";
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/orders" element={isAuthenticate ? <Orders /> : <Navigate to='/' />}/>
           <Route path="/checkout" element={isAuthenticate ? <Checkout/> : <Navigate to='/'/>} />
           <Route path="/cart" element={isAuthenticate ? <Cart/> : <Navigate to='/'/>}/>
+          <Route path="/products" element={isAuthenticate ? <Products/> : <Navigate to='/'/>} />
           <Route path="/signin" element={isAuthenticate ? <SignIn/> : <Navigate to='/'/>} />
           <Route path="/" element={<Login/>}/>
         </Routes>
