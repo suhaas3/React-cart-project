@@ -18,3 +18,47 @@
   padding: 6px 25px;
   border-radius:20px;
 }
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 50px;
+  aspect-ratio: 1.154;
+  position: relative;
+  background: conic-gradient(from 120deg at 50% 64%,#0000, #25b09b 1deg 120deg,#0000 121deg);
+  animation: l27-0 1.5s infinite cubic-bezier(0.3,1,0,1);
+}
+.loader:before,
+.loader:after {
+  content:'';
+  position: absolute;
+  inset:0;
+  background:inherit;
+  transform-origin: 50% 66%;
+  animation: l27-1 1.5s infinite;
+}
+.loader-container {
+margin-left: 750px;
+margin-top: 300px;
+}
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 60px;
+  aspect-ratio: 1;
+  --c:no-repeat linear-gradient(orange 0 0);
+  background:
+    var(--c) left   20px top    0,
+    var(--c) top    20px right  0,
+    var(--c) right  20px bottom 0,
+    var(--c) bottom 20px left   0;
+  background-size:calc(100%/3) calc(100%/3);
+  animation: 
+    l29-1 .75s infinite alternate linear,
+    l29-2 1.5s infinite;
+}
+@keyframes l29-1 {
+ 90%,100% {background-size:calc(2*100%/3) calc(100%/3),calc(100%/3) calc(2*100%/3)}
+}
+@keyframes l29-2 {
+ 0%,49.99% {transform:scaleX(1)}
+ 50%,100%  {transform:scaleX(-1)}
+}
