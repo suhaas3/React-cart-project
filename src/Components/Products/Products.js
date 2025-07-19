@@ -15,8 +15,10 @@ function Products() {
   // }
 
   const [category, setCategory] = useState('All');
-  const [price,setPrice] = useState('All'); 
+  const [price, setPrice] = useState('All');
   const [filterProducts, setFilterProducts] = useState([]);
+  const [addedToCartId, setAddedToCartId] = useState(null);
+
   const dispatch = useDispatch();
   const { productData, isLoading } = useSelector((state) => state.products)
 
@@ -28,8 +30,6 @@ function Products() {
 
   useEffect(() => {
     let filtered = [...productData];
-
-    console.log('elect option', category)
 
     if (category !== 'All') {
       filtered = filtered.filter(product => product.category === category);
@@ -49,10 +49,17 @@ function Products() {
     setFilterProducts(filtered);
   }, [productData, category, price])
 
+  function addToCart(productId) {
+  setAddedToCartId(productId);
+
+  // Remove message after 2 seconds
+  setTimeout(() => {
+    setAddedToCartId(null);
+  }, 2000);
+}
 
   return (
     <>
-
       <div className="options-header">
         <div className="category-option">
           <p className="option-heading">select ur category</p>
@@ -88,7 +95,10 @@ function Products() {
                 <div className="card-body">
                   <p className="card-title">Price :{productList.price}</p>
                   <p className="card-text">Category :{productList.category}</p>
-                  <button className="oreder-button">add to cart</button>
+                  {addedToCartId === productList.id && (
+                    <p style={{ color: "green", marginBottom: "8px" }}>✅ Added</p>
+                  )}
+                  <button className="oreder-button" data-product-id={productList.id} onClick={() => addToCart(productList.id)}>add to cart</button>
                 </div>
               </div>
             );

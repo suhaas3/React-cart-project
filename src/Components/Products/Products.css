@@ -23,6 +23,8 @@
   width: 100%;
 }
 .image {
+  margin-top: 5px;
+  margin-left: 50px;
   width: 150px;
   height: 150px;
 }
