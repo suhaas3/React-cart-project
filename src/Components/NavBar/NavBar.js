@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import './NavBar.css';
 import '../Login/Login.css';
 import { logout } from "../../Features/Auth/AuthSclice";
+import LoginPopup from "../LoginPopup/LoginPopup";
 
 function NavBar() {
 
+  const [isLogin, setLogin] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const dispatch = useDispatch();
-  const {isAuthenticate}= useSelector(state => state.auth)
+  const { isAuthenticate } = useSelector(state => state.auth)
+
 
   function navigateToPage(path) {
+    setLogin(prev => !prev)
     navigate(path)
   }
+
 
   function handleLogout(event) {
     event.preventDefault();
@@ -24,7 +29,7 @@ function NavBar() {
 
   const middle = [
     { path: '/', name: 'eKart' },
-    {path: '/products', name: 'Products'},
+    { path: '/products', name: 'Products' },
     { path: '/orders', name: 'Orders' },
     { path: '/cart', name: 'Cart' },
     { path: '/checkout', name: 'Checkout' }
@@ -34,15 +39,14 @@ function NavBar() {
       <nav className="navbar-main">
         <div className="nav-bar">
           <div className="middle-section">
-              {middle.map((item, index) => {
-                return (
-                  <ul type='none' className={`navbar-list ${
-                    location.pathname === item.path ? 'active-link' : ''
+            {middle.map((item, index) => {
+              return (
+                <ul type='none' className={`navbar-list ${location.pathname === item.path ? 'active-link' : ''
                   }`}>
-                    <li onClick={() => navigateToPage(item.path)} className="lists">{item.name}</li>
-                  </ul>
-                );
-              })}
+                  <li onClick={() => navigateToPage(item.path)} className="lists">{item.name}</li>
+                </ul>
+              );
+            })}
           </div>
 
           <div className="search-bar">
@@ -54,6 +58,8 @@ function NavBar() {
           </div>
         </div>
       </nav>
+
+      <LoginPopup isLogin={isLogin} />
     </>
   );
 }
