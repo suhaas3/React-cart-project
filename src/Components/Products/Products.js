@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 // import axios from "axios";
 import './Products.css';
 import { useDispatch, useSelector } from "react-redux";
 import { getApiData } from "../../Redux-tooltik/Reducers/ProductsSlice";
+import { cartId } from "../../Redux-tooltik/CartSlice";
 
 function Products() {
 
@@ -14,6 +15,7 @@ function Products() {
   //   setProductsData(response.data)
   // }
 
+  const timeoutRef = useRef(null);
   const [category, setCategory] = useState('All');
   const [price, setPrice] = useState('All');
   const [filterProducts, setFilterProducts] = useState([]);
@@ -49,13 +51,26 @@ function Products() {
     setFilterProducts(filtered);
   }, [productData, category, price])
 
+
+    
+
   function addToCart(productId) {
   setAddedToCartId(productId);
 
-  // Remove message after 2 seconds
-  setTimeout(() => {
-    setAddedToCartId(null);
-  }, 2000);
+  dispatch(cartId({cartId: productId}))
+
+  
+    // Clear previous timeout if any
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+
+    // Set new timeout
+    timeoutRef.current = setTimeout(() => {
+      setAddedToCartId(null);
+      timeoutRef.current = null; // optional: reset the ref
+    }, 2000);
+    
 }
 
   return (
@@ -98,7 +113,7 @@ function Products() {
                   {addedToCartId === productList.id && (
                     <p style={{ color: "green", marginBottom: "8px" }}>✅ Added</p>
                   )}
-                  <button className="oreder-button" data-product-id={productList.id} onClick={() => addToCart(productList.id)}>add to cart</button>
+                  <button className="addToCart-button" data-product-id={productList.id} onClick={() => addToCart(productList.id)}>add to cart</button>
                 </div>
               </div>
             );
