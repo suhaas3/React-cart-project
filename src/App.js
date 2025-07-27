@@ -19,12 +19,12 @@ function App() {
         <NavBar />
         <main className="main-section">
         <Routes>
-          <Route path='/home' element={isAuthenticate ? <Ekart/> : <Navigate to='/'/>}/>
-          <Route path="/orders" element={isAuthenticate ? <Orders /> : <Navigate to='/' />}/>
-          <Route path="/checkout" element={isAuthenticate ? <Checkout/> : <Navigate to='/'/>} />
-          <Route path="/cart" element={isAuthenticate ? <Cart/> : <Navigate to='/'/>}/>
-          <Route path="/products" element={isAuthenticate ? <Products/> : <Navigate to='/'/>} />
-          <Route path="/signin" element={isAuthenticate ? <SignIn/> : <Navigate to='/'/>} />
+          <Route path='/home' element={<Ekart/>}/>
+          <Route path="/orders" element={<Orders />}/>
+          <Route path="/checkout" element={<Checkout/>} />
+          <Route path="/cart" element={<Cart/>}/>
+          <Route path="/products" element={<Products/>} />
+          <Route path="/signin" element={<SignIn/>} />
           <Route path="/" element={<Login/>}/>
         </Routes>
         </main>

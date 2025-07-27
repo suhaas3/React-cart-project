@@ -57,6 +57,21 @@ function Products() {
   function addToCart(productId) {
   setAddedToCartId(productId);
 
+  let existingCartId = [];
+  try {
+    const cartStoredId = JSON.parse(localStorage.getItem('cartIdLocal'));
+
+    if (Array.isArray(cartStoredId)) {
+      existingCartId = cartStoredId;
+    }
+  } catch(e) {
+    console.warn("Invalid cartIdLocal in localStorage, resetting to empty array.");
+  }
+
+  const updatedCartId = existingCartId.includes(productId) ? existingCartId : [...existingCartId,productId];
+
+  localStorage.setItem('cartIdLocal',JSON.stringify(updatedCartId));
+
   dispatch(cartId({cartId: productId}))
 
   

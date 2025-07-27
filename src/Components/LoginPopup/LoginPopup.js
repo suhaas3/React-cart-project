@@ -19,7 +19,7 @@ export default function LoginPopup({isLogin}) {
     setOpen(false);
   };
 
-  console.log(isLogin,'lofifjfjjk')
+  // console.log(isLogin,'lofifjfjjk')
   return (
     <>
     {isLogin ? <React.Fragment>
