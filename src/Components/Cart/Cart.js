@@ -42,7 +42,7 @@ useEffect(() => {
 
   return (
     <>
-    {isLoading ? <div className="loader loader-container"></div> :       <div className='cart-page-container'>
+      <div className='cart-page-container'>
         <h2>🛒 Cart Products</h2>
         {cartProducts.length > 0 ? (
           cartProducts.map(product => (
@@ -76,7 +76,7 @@ useEffect(() => {
         ) : (
           <p>Your cart is empty.</p>
         )}
-      </div>}
+      </div>
 
     </>
   )

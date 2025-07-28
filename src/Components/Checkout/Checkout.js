@@ -64,9 +64,9 @@ function Checkout() {
   return (
     <>
       <div className="input-details" style={{ marginBottom: "150px", display: "flex", flexDirection: "column", alignItems: "start", marginLeft: "100px" }}>
-        <TextField id="outlined-basic" label="Outlined" name="userName" onChange={handleInput} variant="outlined" style={{ marginTop: "30px", marginBottom: "30px" }} />
+        <TextField id="outlined-basic" label="email" name="userName" onChange={handleInput} variant="outlined" style={{ marginTop: "30px", marginBottom: "30px" }} />
 
-        <TextField id="outlined-basic" name="passWord" onChange={handleInput} label="Outlined" variant="outlined" />
+        <TextField id="outlined-basic" name="passWord" onChange={handleInput} label="Password" variant="outlined" />
 
         <div className="container-fluid" style={{display: "flex",gap: "30px",marginTop: "30px"}}>
 

@@ -3,7 +3,7 @@ import { BrowserRouter as Router,Routes,Route, Navigate } from "react-router-dom
 import Cart from "./Components/Cart/Cart";
 import Checkout from "./Components/Checkout/Checkout";
 import SignIn from "./Components/SignIn/SignIn";
-import Login from "./Components/Login/Login";
+// import Login from "./Components/Login/Login";
 import { useSelector } from "react-redux";
 import Ekart from "./Components/Ekart/Ekart";
 import Orders from "./Components/Orders/Orders";
@@ -25,7 +25,7 @@ function App() {
           <Route path="/cart" element={<Cart/>}/>
           <Route path="/products" element={<Products/>} />
           <Route path="/signin" element={<SignIn/>} />
-          <Route path="/" element={<Login/>}/>
+          {/* <Route path="/login" element={<Login/>}/> */}
         </Routes>
         </main>
       </Router>

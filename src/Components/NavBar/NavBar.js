@@ -16,7 +16,6 @@ function NavBar() {
 
 
   function navigateToPage(path) {
-    setLogin(prev => !prev)
     navigate(path)
   }
 
@@ -27,8 +26,14 @@ function NavBar() {
     dispatch(logout())
   }
 
+  function navigateToPopup() {
+    setLogin(prev => !prev); 
+  }
+
+  console.log(isLogin,'clicked login')
+
   const middle = [
-    { path: '/', name: 'eKart' },
+    { path: '/ekart', name: 'eKart' },
     { path: '/products', name: 'Products' },
     { path: '/orders', name: 'Orders' },
     { path: '/cart', name: 'Cart' },
@@ -54,12 +59,12 @@ function NavBar() {
           </div>
 
           <div className="right-section">
-            {isAuthenticate ? (<button onClick={handleLogout} type="submit" className="login-logout-button">Logout</button>) : (<button className="login-logout-button" onClick={() => navigateToPage('/')}>Login</button>)}
+            {isAuthenticate ? (<button onClick={handleLogout} type="submit" className="login-logout-button">Logout</button>) : (<button className="login-logout-button" onClick={navigateToPopup}>Login</button>)}
           </div>
         </div>
       </nav>
 
-      <LoginPopup isLogin={isLogin} />
+      <LoginPopup isLogin={isLogin} setLogin={setLogin}/>
     </>
   );
 }
