@@ -7,8 +7,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 80px;
-  padding-top: 65px;
 }
 
 .login-sub-section {
@@ -16,18 +14,15 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border: 2px solid black;
   padding: 50px 40px 30px 40px;
-  height: 348px;
+  height: 250px;
   border-radius: 2px;
 }
 
 .userNameBox,
 .passwordBox { 
-  border: 1px snow gray;
-  height: 33px;
-  width: 220px;
-
+  height: 20px;
+  width: 320px;
 }
 
 .userNameBox::placeholder,
@@ -38,12 +33,12 @@
 } 
 
 .login-button-new {
-  background-color: black;
   color: white;
   padding: 3px 89px;
   border: none;
   border-radius: 3px;
   cursor: pointer;
+      padding: 6px 138px;
 }
 
 .error-message {

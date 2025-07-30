@@ -4,6 +4,7 @@
   import { useDispatch, useSelector } from "react-redux";
   import { login } from "../../Features/Auth/AuthSclice";
   import TextField from '@mui/material/TextField';
+import Button from "@mui/material/Button";
   
   
   function Login({isLogin,setLogin}) {
@@ -49,13 +50,13 @@
     <>
       <div className="login-page">
         <div className="login-section">
-          <h3>Login Section</h3>
           <div className="login-sub-section">
                   <TextField id="outlined-basic" className="userNameBox" label="UserName"  name="userName" onChange={handleLoginDetails} variant="outlined" />
             {/* <input type="text" className="userNameBox" placeholder="Username" name="userName" onChange={handleLoginDetails} /> */}
             {/* <input type="text" className="passwordBox" placeholder="Password" name="passWord" onChange={handleLoginDetails} /> */}
             <TextField id="outlined-basic" className="passwordBox"  label="Password"  name="Password" onChange={handleLoginDetails} variant="outlined" />
-            <button className="login-button-new" onClick={handleSubmit}>Login</button>
+            <Button onClick={handleSubmit} className="login-button-new" variant="contained">Login</Button>
+            {/* <button className="login-button-new" onClick={handleSubmit}>Login</button> */}
 
           </div>
         </div>
