@@ -19,6 +19,8 @@ function Checkout() {
   })
 
     const [jsonData, setJsonData] = useState([]);
+    const [title,setTitle]=useState('');
+    const [body,setBody]=useState('');
 
   const [isOpenEditing, setOpenEditing] = useState(false);
 
@@ -215,7 +217,16 @@ function Checkout() {
     setJsonData(mockObject)
   }
 
+  const newUser = {
+    title: title,
+    body: body
+  }
   function createUser() {
+    setJsonData(prevData => {
+      const resultData = [...prevData,newUser];
+
+      return resultData;
+    })
 
   }
 
@@ -227,22 +238,30 @@ function Checkout() {
 
   }
 
-  const handleInput = (event) => {
-    const { name, value } = event.target;
-    setUserDetails({
-      ...userDetails,
-      [name]: value
-    })
+  function handleTitle() {
+
   }
+
+  function handleBody() {
+
+  }
+
+  // const handleInput = (event) => {
+  //   const { name, value } = event.target;
+  //   setUserDetails({
+  //     ...userDetails,
+  //     [name]: value
+  //   })
+  // }
 
 
   return (
     <>
 
       <div className="input-details" style={{ marginBottom: "150px", display: "flex", flexDirection: "column", alignItems: "start", marginLeft: "100px" }}>
-        <TextField id="outlined-basic" label="email" name="userName" onChange={handleInput} variant="outlined" style={{ marginTop: "30px", marginBottom: "30px" }} />
+        <TextField id="outlined-basic" label="email" name="userName" onChange={(e) => setTitle(e.target.value)} variant="outlined" style={{ marginTop: "30px", marginBottom: "30px" }} />
 
-        <TextField id="outlined-basic" label="Password" name="passWord"  onChange={handleInput}  variant="outlined" />
+        <TextField id="outlined-basic" label="Password" name="passWord"  onChange={(e) => setBody(e.target.value)}  variant="outlined" />
 
         <div className="container-fluid" style={{ display: "flex", gap: "30px", marginTop: "30px" }}>
 
